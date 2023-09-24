@@ -1,0 +1,20 @@
+from replit import clear
+#HINT: You can call clear() to clear the output in the console.
+bid_status = True
+while bid_status:
+  bidder_details = {}
+  name = input("What is your first name: ")
+  bid = input("What is your bid price: $")
+  room_status = input("Is there any other bidder in the room (Y for Yes, N for No): ").lower()
+  bidder_details[name] = bid
+  
+  if room_status == "y":
+    clear()  
+  elif room_status == "n":
+    clear() 
+    bid_status = False
+    print ("The bid has ended")
+    
+highest_bidder = max(bidder_details, key=bidder_details.get)
+winner_name = bidder_details[highest_bidder]
+print (f"The winner is {highest_bidder} with a bid of ${winner_name}")
