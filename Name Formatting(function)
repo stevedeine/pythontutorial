@@ -1,0 +1,9 @@
+f_name = input("What is your first name: ")
+l_name = input("What is your last name: ")
+
+def format_name(f_name, l_name):
+  new_fname = f_name.title()
+  new_lname = l_name.title()
+  return f"Your newly formatted name is {new_fname} {new_lname}"
+
+print (format_name(f_name, l_name))
