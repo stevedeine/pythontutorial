@@ -1,0 +1,75 @@
+#Number Guessing Game Objectives:
+import random
+# Include an ASCII art logo.
+# Allow the player to submit a guess for a number between 1 and 100.
+print ("Welcome to the Number Guessing Game")
+print ("I'm thinking of a number between 1 and 100")
+actual_number = random.randint(1, 100)
+#print(actual_number)
+easy_lives = [1,2,3,4,5,6,7,8,9,10]
+hard_lives = [1,2,3,4,5]
+print ("You have 10 attempts to guess the number")
+difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+#number = int(input("guess a number: "))
+
+# Assuming you've defined actual_number somewhere before this loop
+def easy_mode():
+  is_win = False
+  easy_lives = [1,2,3,4,5,6,7,8,9,10]
+  while is_win == False:
+      number = int(input("Enter your guess: "))  # Get user input for their guess   
+      if number != actual_number:
+        easy_lives.pop()
+        print(f"You have {len(easy_lives)} lives left")
+        if len(easy_lives) == 0:
+          print ("game over")
+          break
+        elif number < actual_number:
+            print("Too low\nGuess Again")
+        elif number > actual_number:
+            print("Too high\nGuess Again")
+      else:
+          print("The number is correct")
+          is_win = True
+
+def hard_mode():
+  is_win = False
+  easy_lives = [1,2,3,4,5]
+  while is_win == False:
+    number = int(input("Enter your guess: ")) 
+    if number != actual_number:
+      easy_lives.pop()
+      print(f"You have {len(easy_lives)} lives left")
+      if len(easy_lives) == 0:
+        print ("game over")
+        break
+      elif number < actual_number:
+          print("Too low\nGuess Again")
+      elif number > actual_number:
+          print("Too high\nGuess Again")
+    else:
+        print("The number is correct")
+        is_win = True
+
+
+if difficulty == "easy":
+  easy_mode()
+else:
+  hard_mode()
+
+#difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+#def easy_mode():
+  #print ("You have 10 attempts to guess the number")
+  #lives = [1,2,3,4,5,6,7,8,9,10]
+  #actual_number = random.randint(1, 100)
+  
+  
+
+
+# Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
+# If they got the answer correct, show the actual answer to the player.
+# Track the number of turns remaining.
+# If they run out of turns, provide feedback to the player. 
+# Include two different difficulty levels (e.g., 10 guesses in easy mode, only 5 guesses in hard mode).
+
